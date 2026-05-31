@@ -11,7 +11,8 @@
     "seed": "ts-node --project tsconfig.json src/database/seed-database.ts",
     "reset-db": "ts-node --project tsconfig.json src/database/reset-database.ts",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts"
   },
   "keywords": [],
   "author": "",
