@@ -3,6 +3,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import routes from './routes';
+import { notFoundMiddleware } from './middlewares/notFoundMiddleware';
+import { errorMiddleware } from './middlewares/errorMiddleware';
 
 const app = express();
 
@@ -12,5 +14,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/', routes);
+
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
 
 export default app;
