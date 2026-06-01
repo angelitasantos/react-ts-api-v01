@@ -3,7 +3,7 @@ import path from 'path';
 import { db } from './connection';
 import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR } from '../constants/index';
 
-async function runMigrations() {
+export async function runMigrations() {
   const migrationsPath = path.resolve(__dirname, 'migrations');
   const files = fs
     .readdirSync(migrationsPath)
@@ -18,10 +18,12 @@ async function runMigrations() {
     await db.exec(sql);
   }
 
-  console.log(DEFAULT_MESSAGE_SUCCESS);
+  console.log(`migrate: ${DEFAULT_MESSAGE_SUCCESS}`);
 }
 
-runMigrations().catch((error) => {
-  console.error(RUNNING_ERROR, error);
-  process.exit(1);
-});
+if (require.main === module) {
+  runMigrations().catch((error) => {
+    console.error(RUNNING_ERROR, error);
+    process.exit(1);
+  });
+}
