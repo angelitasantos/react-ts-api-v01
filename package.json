@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "open": "node scripts/start-dev.js",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run open\""
+  },
   "devDependencies": {
     "concurrently": "^10.0.3",
     "open": "^11.0.0"
