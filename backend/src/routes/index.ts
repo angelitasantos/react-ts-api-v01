@@ -7,4 +7,11 @@ router.get('/', (req, res) => {
   res.send(BACKEND_WORKING);
 });
 
+router.get('/api/testa_conexao_frontend', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: BACKEND_WORKING,
+  });
+});
+
 export default router;
