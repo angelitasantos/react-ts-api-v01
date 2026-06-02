@@ -22,7 +22,7 @@ export const env = {
   NODE_ENV: getNodeEnv(),
   HOST: process.env.HOST || 'http://localhost:',
   PORT: Number(process.env.PORT) || 3001,
-  DB_PATH: process.env.DB_PATH || './database/database.sqlite',
+  DB_PATH: process.env.DB_PATH || './src/database/database.sqlite',
   JWT_SECRET: process.env.JWT_SECRET || 'default_secret',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '1d',
 };
