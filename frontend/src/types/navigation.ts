@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
+import type { IconType } from 'react-icons';
 
 export type NavigationItem = {
   to: string;
   label: string;
-  icon?: ReactNode;
+  icon?: IconType;
 };

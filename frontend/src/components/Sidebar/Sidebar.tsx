@@ -11,26 +11,30 @@ export function Sidebar({ links }: SidebarProps) {
   return (
     <aside className='sidebar'>
       <nav className='sidebar__nav' aria-label='Navegação do painel'>
-        {links.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            end={link.to === '/manager'}
-            className={({ isActive }) =>
-              isActive
-                ? 'sidebar__link sidebar__link--active'
-                : 'sidebar__link'
-            }
-          >
-            <span className='sidebar__icon'>
-              {link.icon ?? <FiCircle />}
-            </span>
+        {links.map((link) => {
+          const Icon = link.icon;
 
-            <span className='sidebar__label'>
-              {link.label}
-            </span>
-          </NavLink>
-        ))}
+          return (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === '/manager'}
+              className={({ isActive }) =>
+                isActive
+                  ? 'sidebar__link sidebar__link--active'
+                  : 'sidebar__link'
+              }
+            >
+              <span className='sidebar__icon'>
+                {Icon ? <Icon /> : <FiCircle />}
+              </span>
+
+              <span className='sidebar__label'>
+                {link.label}
+              </span>
+            </NavLink>
+          );
+        })}
       </nav>
     </aside>
   );
