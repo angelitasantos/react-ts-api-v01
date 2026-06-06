@@ -1,3 +1,3 @@
 export const CONNECTING_MESSAGE = 'Conectando ao backend...';
-export const CONNECTION_ERROR_MESSAGE = 'Erro ao conectar com o backend.';
-export const REQUEST_ERROR_MESSAGE = 'Erro na requisição.';
+export const LOADING_CONTENT = 'Carregando conteúdo...';
+export const NO_CONTENT_AVAILABLE = 'Nenhum conteúdo disponível.';
