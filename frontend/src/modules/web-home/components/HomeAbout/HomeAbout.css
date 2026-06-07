@@ -1,0 +1,53 @@
+.home-about-section {
+  padding: 1rem 0 4rem;
+}
+
+.home-about {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.home-about__content,
+.home-about__card {
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.home-about__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #2563eb;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.home-about__title {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.home-about__description,
+.home-about__card-text {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.home-about__card-title {
+  margin: 0 0 0.75rem;
+  color: #111827;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .home-about {
+    grid-template-columns: 1fr;
+  }
+}
