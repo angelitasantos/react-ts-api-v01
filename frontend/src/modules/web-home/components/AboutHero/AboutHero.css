@@ -1,0 +1,59 @@
+.about-hero-section {
+  padding: 4rem 0 3rem;
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.about-hero__title {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #111827;
+}
+
+.about-hero__description {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.about-hero__image {
+  width: 100%;
+  max-width: 540px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.15);
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__title {
+    font-size: 2.3rem;
+  }
+
+  .about-hero__image {
+    height: 320px;
+  }
+}
