@@ -1,0 +1,122 @@
+.contact-form-section {
+  padding: 1rem 0 4rem;
+}
+
+.contact-form-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1.5rem;
+}
+
+.contact-info-card,
+.contact-form-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.contact-info-card__title,
+.contact-form-card__title {
+  margin: 0 0 1.5rem;
+  color: #111827;
+  font-size: 1.5rem;
+}
+
+.contact-info-card__item + .contact-info-card__item {
+  margin-top: 1.2rem;
+}
+
+.contact-info-card__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.contact-info-card__text {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.contact-form-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.contact-form-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.contact-form-card__field--full {
+  grid-column: 1 / -1;
+}
+
+.contact-form-card__field label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.contact-form-card__field input,
+.contact-form-card__field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.contact-form-card__field input:focus,
+.contact-form-card__field textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.contact-form-card__success {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}
+
+.contact-form-card__button {
+  margin-top: 1.25rem;
+  min-height: 48px;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form-card__button:hover {
+  background-color: #1d4ed8;
+}
+
+.contact-form-card__button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .contact-form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
