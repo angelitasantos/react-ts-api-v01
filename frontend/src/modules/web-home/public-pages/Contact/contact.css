@@ -1,0 +1,28 @@
+.contact-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.contact-page__main {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page__status-wrapper {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.contact-page__status {
+  font-size: 1.1rem;
+  color: #374151;
+  text-align: center;
+}
+
+.contact-page__status--error {
+  color: #dc2626;
+  font-weight: 700;
+}
