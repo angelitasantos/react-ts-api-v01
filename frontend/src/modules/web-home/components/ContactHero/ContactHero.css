@@ -1,0 +1,39 @@
+.contact-hero-section {
+  padding: 4rem 0 2rem;
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+}
+
+.contact-hero {
+  max-width: 760px;
+}
+
+.contact-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.contact-hero__title {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #111827;
+}
+
+.contact-hero__description {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .contact-hero__title {
+    font-size: 2.2rem;
+  }
+}
