@@ -1,17 +1,20 @@
-import { Router } from 'express';
-import { BACKEND_WORKING } from '../constants/index';
+import { Router } from 'express'
+import { BACKEND_WORKING } from '../constants/index'
+import webAuthRoutes from '../modules/web-auth'
 
-const router = Router();
+const router = Router()
 
 router.get('/', (req, res) => {
-  res.send(BACKEND_WORKING);
-});
+  res.send(BACKEND_WORKING)
+})
 
 router.get('/api/testa_conexao_frontend', (req, res) => {
   res.status(200).json({
     success: true,
     message: BACKEND_WORKING,
-  });
-});
+  })
+})
 
-export default router;
+router.use(webAuthRoutes)
+
+export default router
