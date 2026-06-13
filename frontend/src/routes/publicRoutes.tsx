@@ -1,8 +1,9 @@
-import { PublicLayout } from '../layouts/PublicLayout/PublicLayout';
-import { NotFound } from '../pages/public/NotFound/NotFound';
-import Home from '../modules/web-home/public-pages/Home';
-import About from '../modules/web-home/public-pages/About';
-import Contact from '../modules/web-home/public-pages/Contact';
+import { PublicLayout } from '../layouts/PublicLayout/PublicLayout'
+import { PublicRoute } from '../components/PublicRoute/PublicRoute'
+import { LoginPage } from '../pages/public/LoginPage/LoginPage'
+import Home from '../modules/web-home/public-pages/Home'
+import About from '../modules/web-home/public-pages/About'
+import Contact from '../modules/web-home/public-pages/Contact'
 
 export const publicRoutes = {
   path: '/',
@@ -11,6 +12,14 @@ export const publicRoutes = {
     { index: true, element: <Home /> },
     { path: 'about', element: <About /> },
     { path: 'contact', element: <Contact /> },
-    { path: 'login', element: <NotFound /> },
+
+    {
+      path: 'login',
+      element: (
+        <PublicRoute>
+          <LoginPage />
+        </PublicRoute>
+      ),
+    },
   ],
-};
+}
