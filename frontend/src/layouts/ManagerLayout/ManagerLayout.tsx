@@ -1,14 +1,18 @@
-import { Outlet } from 'react-router-dom';
-import { Header } from '../../components/Header/Header';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
-import { Footer } from '../../components/Footer/Footer';
+import { Outlet } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
+import { LogoutButton } from '../../components/LogoutButton/LogoutButton'
+import { Header } from '../../components/Header/Header'
+import { Sidebar } from '../../components/Sidebar/Sidebar'
+import { Footer } from '../../components/Footer/Footer'
 import {
   managerTopLinks,
   managerSidebarLinks,
-} from '../../types/managerNavigation';
-import './ManagerLayout.css';
+} from '../../types/managerNavigation'
+import './ManagerLayout.css'
 
 export function ManagerLayout() {
+  const { user } = useAuth()
+
   return (
     <div className='manager-layout'>
       <Header
@@ -16,8 +20,8 @@ export function ManagerLayout() {
         logoTo='/manager'
         links={managerTopLinks}
         theme='manager'
-        userName='Carlos'
-        actions={<button type='button'>Sair</button>}
+        userName={user?.name}
+        actions={<LogoutButton />}
         useContainer={false}
       />
 
@@ -31,5 +35,5 @@ export function ManagerLayout() {
 
       <Footer variant='manager' containerSize='full' />
     </div>
-  );
+  )
 }
