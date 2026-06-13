@@ -50,6 +50,10 @@
   color: #f9fafb;
 }
 
+.site-header__right span {
+  font-weight: 500;
+}
+
 .site-header__right button {
   padding: 0.2rem 1rem;
   border: 1px solid #374151;
