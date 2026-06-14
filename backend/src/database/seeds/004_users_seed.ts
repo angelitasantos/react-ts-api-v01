@@ -1,5 +1,5 @@
 import { db } from '../connection'
-import { hashPassword } from '../../utils/hash'
+import { hashPassword } from '../../shared/utils/hash'
 
 export default async function usersSeed() {
   const adminPassword = await hashPassword('admin123')

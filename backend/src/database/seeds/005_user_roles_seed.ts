@@ -1,5 +1,5 @@
-import { db } from '../connection';
-import { IdRow } from '../../types/database'
+import { db } from '../connection'
+import { IdRow } from '../../shared/types/database'
 
 export default async function userRolesSeed() {
   const admin = await db.get<IdRow>(

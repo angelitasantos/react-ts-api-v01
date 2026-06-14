@@ -1,3 +1,3 @@
 export interface IdRow {
-  id: number;
+  id: number
 }

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { BACKEND_WORKING } from '../constants/index'
+import { BACKEND_WORKING } from '../shared/constants/index'
 import webAuthRoutes from '../modules/web-auth'
 
 const router = Router()

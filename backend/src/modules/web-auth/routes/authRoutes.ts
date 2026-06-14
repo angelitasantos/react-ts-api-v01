@@ -2,8 +2,8 @@ import { Router } from 'express'
 import { AuthModel } from '../models/authModel'
 import { AuthService } from '../services/authService'
 import { AuthController } from '../controllers/authController'
-import { authMiddleware } from '../../../middlewares/authMiddleware'
-import { roleMiddleware } from '../../../middlewares/roleMiddleware'
+import { authMiddleware } from '../../../shared/middlewares/authMiddleware'
+import { roleMiddleware } from '../../../shared/middlewares/roleMiddleware'
 
 const router = Router()
 

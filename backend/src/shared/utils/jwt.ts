@@ -1,5 +1,5 @@
 import jwt, { Secret, SignOptions } from 'jsonwebtoken'
-import { env } from '../config/env'
+import { env } from '../../config/env'
 
 export interface JwtPayload {
   id: number
@@ -14,7 +14,7 @@ export function generateToken(payload: JwtPayload) {
     {
       expiresIn: env.JWT_EXPIRES_IN as SignOptions['expiresIn'],
     },
-  );
+  )
 }
 
 export function verifyToken(

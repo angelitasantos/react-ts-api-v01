@@ -1,4 +1,4 @@
-import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR } from '../constants'
+import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR } from '../shared/constants'
 
 import {
   rolesSeed,

@@ -1,5 +1,5 @@
 import { db } from '../connection'
-import { IdRow } from '../../types/database'
+import { IdRow } from '../../shared/types/database'
 
 export default async function rolePermissionsSeed() {
   const permissionsByRole = {
@@ -55,7 +55,7 @@ export default async function rolePermissionsSeed() {
       )
 
       if (!permission) {
-        continue;
+        continue
       }
 
       await db.run(

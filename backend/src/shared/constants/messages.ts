@@ -1,4 +1,4 @@
-import { env } from '../config/env';
+import { env } from '../../config/env'
 
 export const BACKEND_WORKING = 'Backend funcionando 🚀'
 export const SERVER_RUNNING = `Servidor rodando em ${env.HOST}${env.PORT}`

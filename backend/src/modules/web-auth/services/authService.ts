@@ -1,12 +1,12 @@
-import { AppError } from '../../../utils/AppError'
-import { comparePassword } from '../../../utils/hash'
-import { generateToken } from '../../../utils/jwt'
+import { AppError } from '../../../shared/utils/AppError'
+import { comparePassword } from '../../../shared/utils/hash'
+import { generateToken } from '../../../shared/utils/jwt'
 import { AuthModel } from '../models/authModel'
 import { LoginDTO } from '../types/authTypes'
 import { 
   INACTIVE_USER, 
   INVALID_EMAIL_OR_PASSWORD 
-} from '../../../constants/index'
+} from '../../../shared/constants/index'
 
 export class AuthService {
   constructor(private readonly authModel: AuthModel) {}
