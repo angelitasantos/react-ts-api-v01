@@ -1,9 +1,9 @@
-import type { HomeContent } from '../../../../types/home';
-import { Container } from '../../../../components/Container';
-import './HomeBanner.css';
+import type { HomeContent } from '../../types/home'
+import { Container } from '../../../../shared/components/Container'
+import './HomeBanner.css'
 
 interface HomeBannerProps {
-  content: HomeContent;
+  content: HomeContent
 }
 
 export function HomeBanner({ content }: HomeBannerProps) {
@@ -44,5 +44,5 @@ export function HomeBanner({ content }: HomeBannerProps) {
         </div>
       </Container>
     </section>
-  );
+  )
 }

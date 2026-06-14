@@ -1,12 +1,14 @@
-import { useHome } from '../../../../hooks/useHome';
-import { HomeBanner } from '../../components/HomeBanner/HomeBanner';
-import { HomeHighlights } from '../../components/HomeHighlights/HomeHighlights';
-import { HomeAbout } from '../../components/HomeAbout/HomeAbout';
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../constants/messages';
-import './home.css';
+import { useHome } from '../../hooks/useHome'
+import { HomeBanner } from '../../components/HomeBanner/HomeBanner'
+import { HomeHighlights } from '../../components/HomeHighlights/HomeHighlights'
+import { HomeAbout } from '../../components/HomeAbout/HomeAbout'
+import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
+import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../shared/constants/messages'
+import './home.css'
 
 export default function Home() {
-  const { home, loading, error } = useHome();
+  useDocumentTitle('Home | Site')
+  const { home, loading, error } = useHome()
 
   return (
     <div className='home-page'>
@@ -49,5 +51,5 @@ export default function Home() {
         )}
       </main>
     </div>
-  );
+  )
 }

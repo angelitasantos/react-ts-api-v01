@@ -1,1 +1,1 @@
-export { HomeHighlights } from './HomeHighlights';
+export { HomeHighlights } from './HomeHighlights'

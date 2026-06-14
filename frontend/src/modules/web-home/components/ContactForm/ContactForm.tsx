@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Container } from '../../../../components/Container';
-import type { ContactContent, ContactFormData } from '../../../../types/contact';
-import './ContactForm.css';
+import { useState } from 'react'
+import { Container } from '../../../../shared/components/Container'
+import type { ContactContent, ContactFormData } from '../../types/contact'
+import './ContactForm.css'
 
 interface ContactFormProps {
-  content: ContactContent;
-  submitting: boolean;
-  successMessage: string | null;
-  onSubmit: (data: ContactFormData) => Promise<void>;
+  content: ContactContent
+  submitting: boolean
+  successMessage: string | null
+  onSubmit: (data: ContactFormData) => Promise<void>
 }
 
 export function ContactForm({
@@ -21,28 +21,28 @@ export function ContactForm({
     email: '',
     subject: '',
     message: '',
-  });
+  })
 
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }));
+    }))
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    await onSubmit(formData);
+    event.preventDefault()
+    await onSubmit(formData)
 
     setFormData({
       name: '',
       email: '',
       subject: '',
       message: '',
-    });
+    })
   }
 
   return (
@@ -140,5 +140,5 @@ export function ContactForm({
         </div>
       </Container>
     </section>
-  );
+  )
 }

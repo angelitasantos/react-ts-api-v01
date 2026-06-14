@@ -1,1 +1,1 @@
-export { AboutValues } from './AboutValues';
+export { AboutValues } from './AboutValues'

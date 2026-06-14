@@ -1,11 +1,11 @@
-import type { HomeHighlightItem } from '../../../../types/home';
-import { Container } from '../../../../components/Container';
-import './HomeHighlights.css';
+import type { HomeHighlightItem } from '../../types/home'
+import { Container } from '../../../../shared/components/Container'
+import './HomeHighlights.css'
 
 interface HomeHighlightsProps {
-  title: string;
-  description: string;
-  items: HomeHighlightItem[];
+  title: string
+  description: string
+  items: HomeHighlightItem[]
 }
 
 export function HomeHighlights({ title, description, items }: HomeHighlightsProps) {
@@ -31,5 +31,5 @@ export function HomeHighlights({ title, description, items }: HomeHighlightsProp
         </div>
       </Container>
     </section>
-  );
+  )
 }

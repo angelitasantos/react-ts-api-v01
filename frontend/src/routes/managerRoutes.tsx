@@ -1,5 +1,5 @@
-import { ManagerLayout } from '../layouts/ManagerLayout/ManagerLayout'
-import { ProtectedRoute } from '../components/ProtectedRoute/ProtectedRoute'
+import { ManagerLayout } from '../shared/layouts/ManagerLayout/ManagerLayout'
+import { ProtectedRoute } from '../shared/components/ProtectedRoute/ProtectedRoute'
 import { NotFound } from '../pages/public/NotFound/NotFound'
 import { ConnectionTest } from '../pages/manager/ConnectionTest/ConnectionTest'
 

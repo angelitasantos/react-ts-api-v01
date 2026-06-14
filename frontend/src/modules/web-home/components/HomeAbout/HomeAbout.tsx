@@ -1,11 +1,11 @@
-import { Container } from '../../../../components/Container';
-import './HomeAbout.css';
+import { Container } from '../../../../shared/components/Container'
+import './HomeAbout.css'
 
 interface HomeAboutProps {
-  title: string;
-  description: string;
-  cardTitle: string;
-  cardDescription: string;
+  title: string
+  description: string
+  cardTitle: string
+  cardDescription: string
 }
 
 export function HomeAbout({ title, description, cardTitle, cardDescription }: HomeAboutProps) {
@@ -26,5 +26,5 @@ export function HomeAbout({ title, description, cardTitle, cardDescription }: Ho
         </div>
       </Container>
     </section>
-  );
+  )
 }

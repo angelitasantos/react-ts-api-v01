@@ -1,12 +1,12 @@
-import { Container } from '../../../../components/Container';
-import type { AboutValueItem } from '../../../../types/about';
-import './AboutValues.css';
+import { Container } from '../../../../shared/components/Container'
+import type { AboutValueItem } from '../../types/about'
+import './AboutValues.css'
 
 interface AboutValuesProps {
-  title: string;
-  values: AboutValueItem[];
-  missionTitle: string;
-  missionDescription: string;
+  title: string
+  values: AboutValueItem[]
+  missionTitle: string
+  missionDescription: string
 }
 
 export function AboutValues({
@@ -39,5 +39,5 @@ export function AboutValues({
         </div>
       </Container>
     </section>
-  );
+  )
 }

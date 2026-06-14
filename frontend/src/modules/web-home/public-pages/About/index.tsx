@@ -1,11 +1,13 @@
-import { useAbout } from '../../../../hooks/useAbout';
-import { AboutHero } from '../../components/AboutHero';
-import { AboutValues } from '../../components/AboutValues';
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../constants/messages';
-import './about.css';
+import { useAbout } from '../../hooks/useAbout'
+import { AboutHero } from '../../components/AboutHero'
+import { AboutValues } from '../../components/AboutValues'
+import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
+import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../shared/constants/messages'
+import './about.css'
 
 export default function About() {
-  const { about, loading, error } = useAbout();
+  useDocumentTitle('About | Site')
+  const { about, loading, error } = useAbout()
 
   return (
     <div className='about-page'>
@@ -43,5 +45,5 @@ export default function About() {
         )}
       </main>
     </div>
-  );
+  )
 }

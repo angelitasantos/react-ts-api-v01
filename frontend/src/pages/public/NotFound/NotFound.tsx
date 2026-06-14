@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './NotFound.css';
+import { Link } from 'react-router-dom'
+import './NotFound.css'
 
 export function NotFound() {
   return (
@@ -17,5 +17,5 @@ export function NotFound() {
         Voltar para Home
       </Link>
     </div>
-  );
+  )
 }

@@ -1,11 +1,14 @@
-import { useContact } from '../../../../hooks/useContact';
-import { ContactHero } from '../../components/ContactHero';
-import { ContactForm } from '../../components/ContactForm';
-import './contact.css';
+import { useContact } from '../../hooks/useContact'
+import { ContactHero } from '../../components/ContactHero'
+import { ContactForm } from '../../components/ContactForm'
+import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
+import './contact.css'
 
 export default function Contact() {
+  useDocumentTitle('Contact | Site')
+
   const { contact, loading, error, submitting, successMessage, submitForm } =
-    useContact();
+    useContact()
 
   return (
     <div className='contact-page'>
@@ -37,5 +40,5 @@ export default function Contact() {
         )}
       </main>
     </div>
-  );
+  )
 }

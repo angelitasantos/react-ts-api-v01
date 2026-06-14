@@ -1,9 +1,9 @@
-import { Container } from '../../../../components/Container';
-import type { AboutContent } from '../../../../types/about';
-import './AboutHero.css';
+import { Container } from '../../../../shared/components/Container'
+import type { AboutContent } from '../../types/about'
+import './AboutHero.css'
 
 interface AboutHeroProps {
-  content: AboutContent;
+  content: AboutContent
 }
 
 export function AboutHero({ content }: AboutHeroProps) {
@@ -29,5 +29,5 @@ export function AboutHero({ content }: AboutHeroProps) {
         </div>
       </Container>
     </section>
-  );
+  )
 }

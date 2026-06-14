@@ -1,9 +1,9 @@
-import { Container } from '../../../../components/Container';
-import type { ContactContent } from '../../../../types/contact';
-import './ContactHero.css';
+import { Container } from '../../../../shared/components/Container'
+import type { ContactContent } from '../../types/contact'
+import './ContactHero.css'
 
 interface ContactHeroProps {
-  content: ContactContent;
+  content: ContactContent
 }
 
 export function ContactHero({ content }: ContactHeroProps) {
@@ -17,5 +17,5 @@ export function ContactHero({ content }: ContactHeroProps) {
         </div>
       </Container>
     </section>
-  );
+  )
 }
