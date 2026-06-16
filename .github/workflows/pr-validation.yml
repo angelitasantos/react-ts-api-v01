@@ -1,0 +1,51 @@
+name: Pull Request Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      # Backend
+      - name: Install Backend Dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Backend Lint
+        working-directory: backend
+        run: npm run lint --if-present
+
+      - name: Backend Build
+        working-directory: backend
+        run: npm run build
+
+      # Frontend
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Frontend Lint
+        working-directory: frontend
+        run: npm run lint --if-present
+
+      - name: Frontend Build
+        working-directory: frontend
+        run: npm run build
