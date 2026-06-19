@@ -3,7 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - '**'
+      - "**"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,7 +33,7 @@ jobs:
       # Backend
       - name: Install Backend Dependencies
         working-directory: backend
-        run: npm ci
+        run: npm ci --no-audit --prefer-offline
 
       - name: Build Backend
         working-directory: backend
@@ -38,7 +42,7 @@ jobs:
       # Frontend
       - name: Install Frontend Dependencies
         working-directory: frontend
-        run: npm ci
+        run: npm ci --no-audit --prefer-offline
 
       - name: Build Frontend
         working-directory: frontend
