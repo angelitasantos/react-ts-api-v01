@@ -1,9 +1,21 @@
 {
   "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run open\"",
+
     "backend": "cd backend && npm run dev",
     "frontend": "cd frontend && npm run dev",
+
     "open": "node scripts/start-dev.js",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run open\""
+
+    "build": "npm run build:backend && npm run build:frontend",
+
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+
+    "lint": "npm run lint:backend && npm run lint:frontend",
+
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint"
   },
   "devDependencies": {
     "concurrently": "^10.0.3",
