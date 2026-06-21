@@ -1,5 +1,5 @@
 import type { HomeContent } from '../../types/home'
-import { Container } from '../../../../shared/components/Container'
+import { Container } from '@project/ui'
 import './HomeBanner.css'
 
 interface HomeBannerProps {

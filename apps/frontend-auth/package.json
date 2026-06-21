@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "extends": "../../tsconfig.base.json",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -16,7 +15,9 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.18.0",
-    "@project/shared": "*"
+    "@project/frontend-core": "*",
+    "@project/shared": "*",
+    "@project/ui": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

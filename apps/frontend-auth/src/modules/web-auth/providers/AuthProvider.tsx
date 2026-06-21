@@ -6,7 +6,7 @@ import {
   getTokenStorage,
   getUserStorage,
   setAuthStorage,
-} from '../../../shared/utils/storage'
+} from '@project/frontend-core'
 
 interface AuthProviderProps {
   children: ReactNode

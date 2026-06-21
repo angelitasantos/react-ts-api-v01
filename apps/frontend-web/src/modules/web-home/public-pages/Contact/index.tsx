@@ -1,7 +1,7 @@
 import { useContact } from '../../hooks/useContact'
 import { ContactHero } from '../../components/ContactHero'
 import { ContactForm } from '../../components/ContactForm'
-import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
+import { useDocumentTitle } from '@project/ui'
 import './contact.css'
 
 export default function Contact() {

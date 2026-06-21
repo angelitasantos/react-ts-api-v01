@@ -1,11 +1,11 @@
 import { contactMock, contactFormMock } from '../mocks/contactMock'
 import type { ContactContent, ContactFormData, } from '../types/contact'
-import type { ApiResponse } from '../../../shared/types/api'
+import type { ApiResponse } from '@project/shared'
 import {
   CONTACT_FORM_ERROR,
   CONTACT_FORM_SUCCESS,
   CONTACT_LOAD_ERROR,
-} from '../../../shared/constants/index'
+} from '@project/shared'
 
 const API_URL = import.meta.env.VITE_API_URL
 

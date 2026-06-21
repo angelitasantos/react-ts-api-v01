@@ -1,4 +1,4 @@
-import { Container } from '../../../../shared/components/Container'
+import { Container } from '@project/ui'
 import type { ContactContent } from '../../types/contact'
 import './ContactHero.css'
 

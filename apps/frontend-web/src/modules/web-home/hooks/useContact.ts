@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { contactService } from '../services/contactService'
 import type { ContactContent, ContactFormData } from '../types/contact'
-import { CONTACT_FORM_ERROR, CONTACT_FORM_SUCCESS, CONTACT_LOAD_ERROR } from '../../../shared/constants/index'
+import { 
+  CONTACT_FORM_ERROR, 
+  CONTACT_FORM_SUCCESS, 
+  CONTACT_LOAD_ERROR } from '@project/shared'
 
 interface UseContactReturn {
   contact: ContactContent | null

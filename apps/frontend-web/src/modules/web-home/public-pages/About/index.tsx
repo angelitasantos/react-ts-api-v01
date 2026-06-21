@@ -1,8 +1,8 @@
 import { useAbout } from '../../hooks/useAbout'
 import { AboutHero } from '../../components/AboutHero'
 import { AboutValues } from '../../components/AboutValues'
-import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../shared/constants/messages'
+import { useDocumentTitle } from '@project/ui'
+import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '@project/shared'
 import './about.css'
 
 export default function About() {

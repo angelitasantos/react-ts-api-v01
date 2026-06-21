@@ -1,14 +1,14 @@
-import { ManagerLayout } from '../shared/layouts/ManagerLayout/ManagerLayout'
-import { ProtectedRoute } from '../shared/components/ProtectedRoute/ProtectedRoute'
+import { ManagerRoute } from './ManagerRoute'
+import { ManagerLayoutPage } from './ManagerLayoutPage'
 import { NotFound } from '../pages/public/NotFound/NotFound'
 import { ConnectionTest } from '../pages/manager/ConnectionTest/ConnectionTest'
 
 export const managerRoutes = {
-  element: <ProtectedRoute />,
+  element: <ManagerRoute />,
   children: [
     {
       path: '/manager',
-      element: <ManagerLayout />,
+      element: <ManagerLayoutPage />,
       children: [
         { index: true, element: <NotFound /> },
         { path: 'users', element: <NotFound /> },

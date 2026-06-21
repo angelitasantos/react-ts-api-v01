@@ -2,7 +2,7 @@ import axios from 'axios'
 import { FormEvent, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
-import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
+import { useDocumentTitle } from '@project/ui'
 import './LoginPage.css'
 
 export function LoginPage() {
@@ -44,29 +44,29 @@ export function LoginPage() {
   }
 
   return (
-    <section className="login-page">
-      <div className="login-card">
-        <h1 className="login-card__title">
+    <section className='login-page'>
+      <div className='login-card'>
+        <h1 className='login-card__title'>
           Acesso ao Painel
         </h1>
 
         <form
-          className="login-form"
+          className='login-form'
           onSubmit={handleSubmit}
         >
 
           {error && (
-            <p className="login-form__error">
+            <p className='login-form__error'>
               {error}
             </p>
           )}
           
-          <div className="login-form__group">
-            <label htmlFor="email">E-mail</label>
+          <div className='login-form__group'>
+            <label htmlFor='email'>E-mail</label>
 
             <input
-              id="email"
-              type="email"
+              id='email'
+              type='email'
               value={email}
               onChange={(event) =>
                 setEmail(event.target.value)
@@ -75,12 +75,12 @@ export function LoginPage() {
             />
           </div>
 
-          <div className="login-form__group">
-            <label htmlFor="password">Senha</label>
+          <div className='login-form__group'>
+            <label htmlFor='password'>Senha</label>
 
             <input
-              id="password"
-              type="password"
+              id='password'
+              type='password'
               value={password}
               onChange={(event) =>
                 setPassword(event.target.value)
@@ -90,9 +90,9 @@ export function LoginPage() {
           </div>
 
           <button
-            type="submit"
+            type='submit'
             disabled={loading}
-            className="login-form__submit"
+            className='login-form__submit'
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>

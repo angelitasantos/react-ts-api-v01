@@ -1,3 +1,3 @@
-export { publicRoutes } from './publicRoutes'
-export { managerRoutes } from './managerRoutes'
-export { notFoundRoute } from './notFoundRoute'
+export const publicRoutes = [];
+export const managerRoutes = [];
+export const notFoundRoute = {};

@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "extends": "../../tsconfig.base.json",
   "scripts": {
-    "dev": "ts-node-dev --project tsconfig.json --respawn --transpile-only src/server.ts",
-    "build": "tsc",
+    "dev": "npm run build && node dist/server.js",
+    "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "migrate": "ts-node --project tsconfig.json src/database/run-migrations.ts",
     "seed": "ts-node --project tsconfig.json src/database/seed-database.ts",
@@ -28,7 +27,10 @@
     "helmet": "^8.2.0",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^6.0.1",
+    "@project/backend-core": "*",
+    "@project/database":"*",
+    "@project/shared": "*"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",

@@ -1,5 +1,5 @@
 import type { ContactContent } from '../types/contact'
-import { CONTACT_FORM_SUCCESS } from '../../../shared/constants/index'
+import { CONTACT_FORM_SUCCESS } from '@project/shared'
 
 export const contactMock: ContactContent = {
   id: 1,

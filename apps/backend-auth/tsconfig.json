@@ -1,17 +1,16 @@
 {
+  "extends": "../../tsconfig.base.json",
+
   "compilerOptions": {
-    "target": "ES2020",
     "module": "CommonJS",
-    "moduleResolution": "node",
-    "rootDir": "./",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "ignoreDeprecations": "6.0",
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "moduleResolution": "Node",
+
+    "types": ["node"],
+
+    "rootDir": "./src",
+    "outDir": "dist",
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+
+  "include": ["src"]
 }

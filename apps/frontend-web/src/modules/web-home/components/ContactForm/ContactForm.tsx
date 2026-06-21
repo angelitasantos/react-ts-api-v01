@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container } from '../../../../shared/components/Container'
+import { Container } from '@project/ui'
 import type { ContactContent, ContactFormData } from '../../types/contact'
 import './ContactForm.css'
 

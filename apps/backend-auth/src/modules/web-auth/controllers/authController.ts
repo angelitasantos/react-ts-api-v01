@@ -1,9 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import { AuthService } from '../services/authService'
-import { successResponse } from '../../../shared/utils/responseFormatter'
-import {  
-  LOGIN_SUCCESS, 
-} from '../../../shared/constants/index'
+import { successResponse } from '@project/backend-core'
+import {  LOGIN_SUCCESS } from '@project/shared'
 
 export class AuthController {
   constructor(private readonly authService: AuthService) {}

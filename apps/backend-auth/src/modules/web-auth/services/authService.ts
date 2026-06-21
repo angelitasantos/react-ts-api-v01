@@ -1,12 +1,11 @@
-import { AppError } from '../../../shared/utils/AppError'
-import { comparePassword } from '../../../shared/utils/hash'
-import { generateToken } from '../../../shared/utils/jwt'
+import { AppError, comparePassword, generateToken } from '@project/backend-core'
+import { jwtConfig } from '../../../config/jwt'
 import { AuthModel } from '../models/authModel'
 import { LoginDTO } from '../types/authTypes'
 import { 
   INACTIVE_USER, 
   INVALID_EMAIL_OR_PASSWORD 
-} from '../../../shared/constants/index'
+} from '@project/shared'
 
 export class AuthService {
   constructor(private readonly authModel: AuthModel) {}
@@ -28,11 +27,14 @@ export class AuthService {
       throw new AppError(INVALID_EMAIL_OR_PASSWORD, 401)
     }
 
-    const token = generateToken({
-      id: user.id,
-      email: user.email,
-      role_name: user.role_name,
-    })
+    const token = generateToken(
+      {
+        id: user.id,
+        email: user.email,
+        role_name: user.role_name,
+      },
+      jwtConfig,
+    )
 
     return {
       token,

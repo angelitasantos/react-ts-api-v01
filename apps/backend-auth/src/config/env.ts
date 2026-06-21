@@ -1,28 +1,55 @@
 import dotenv from 'dotenv'
+import path from 'path'
 
-dotenv.config()
+dotenv.config({
+  path: path.resolve(process.cwd(), '.env'),
+})
 
 type NodeEnv = 'development' | 'production' | 'test'
 
 function getNodeEnv(): NodeEnv {
-  const env = process.env.NODE_ENV
+  const value = process.env.NODE_ENV
 
   if (
-    env === 'development' ||
-    env === 'production' ||
-    env === 'test'
+    value === 'development' ||
+    value === 'production' ||
+    value === 'test'
   ) {
-    return env
+    return value
   }
 
   return 'development'
 }
 
+function getNumber(value: string | undefined, defaultValue: number) {
+  const number = Number(value)
+
+  return Number.isFinite(number)
+    ? number
+    : defaultValue
+}
+
+function required(name: string) {
+  const value = process.env[name]
+
+  if (!value) {
+    throw new Error(`Variável de ambiente ausente: ${name}`)
+  }
+
+  return value
+}
+
 export const env = {
-  NODE_ENV: getNodeEnv(),
-  HOST: process.env.HOST || 'http://localhost:',
-  PORT: Number(process.env.PORT) || 3001,
-  DB_PATH: process.env.DB_PATH || './src/database/database.sqlite',
-  JWT_SECRET: process.env.JWT_SECRET || 'default_secret',
-  JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '1d',
+  app: {
+    NODE_ENV: getNodeEnv(),
+    HOST: process.env.HOST ?? 'http://localhost:',
+    PORT: getNumber(process.env.PORT, 3001),
+  },
+  database: {
+    DB_PATH: process.env.DB_PATH ?? './database/database.sqlite',
+  },
+  auth: {
+    JWT_SECRET: required('JWT_SECRET'),
+    JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN ?? '1d',
+  }
 }

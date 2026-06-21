@@ -1,4 +1,4 @@
-import { Container } from '../../../../shared/components/Container'
+import { Container } from '@project/ui'
 import type { AboutValueItem } from '../../types/about'
 import './AboutValues.css'
 

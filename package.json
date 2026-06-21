@@ -1,20 +1,26 @@
 {
   "name": "project",
   "private": true,
-
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
+    "build:shared": "npm run build --workspace @project/shared",
+    "build:ui": "npm run build --workspace @project/ui",
+    "build:frontend-core": "npm run build --workspace @project/frontend-core",
+    "build:backend-core": "npm run build --workspace @project/backend-core",
+    "build:database": "npm run build --workspace @project/database",
+    "build:apps": "npm run build --workspace backend-auth && npm run build --workspace frontend-auth && npm run build --workspace frontend-web",
+    "build": "npm run build:shared && npm run build:ui && npm run build:frontend-core && npm run build:backend-core && npm run build:database && npm run build:apps",
     "dev": "concurrently \"npm run dev --workspace backend-auth\" \"npm run dev --workspace frontend-auth\" \"npm run dev --workspace frontend-web\"",
     "dev:backend": "npm run dev --workspace backend-auth",
     "dev:frontend": "npm run dev --workspace frontend-auth",
-    "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces",
     "test": "npm run test --workspaces"
   },
   "devDependencies": {
+    "@types/node": "^26.0.0",
     "concurrently": "^10.0.3",
     "open": "^11.0.0"
   }

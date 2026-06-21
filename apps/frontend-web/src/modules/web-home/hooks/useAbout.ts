@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { aboutService } from '../services/aboutService'
 import type { AboutContent } from '../types/about'
-import { ABOUT_LOAD_ERROR } from '../../../shared/constants/index'
+import { ABOUT_LOAD_ERROR } from '@project/shared'
 
 interface UseAboutReturn {
   about: AboutContent | null

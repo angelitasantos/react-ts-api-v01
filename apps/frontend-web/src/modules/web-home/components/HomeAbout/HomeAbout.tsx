@@ -1,4 +1,4 @@
-import { Container } from '../../../../shared/components/Container'
+import { Container } from '@project/ui'
 import './HomeAbout.css'
 
 interface HomeAboutProps {

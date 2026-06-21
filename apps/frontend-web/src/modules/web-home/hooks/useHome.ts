@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { homeService } from '../services/homeService'
 import type { HomeContent } from '../types/home'
-import { HOME_LOAD_ERROR } from '../../../shared/constants/index'
+import { HOME_LOAD_ERROR } from '@project/shared'
 
 interface UseHomeReturn {
   home: HomeContent | null

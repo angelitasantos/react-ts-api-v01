@@ -1,6 +1,6 @@
 import { aboutMock } from '../mocks/aboutMock'
 import type { AboutContent } from '../types/about'
-import type { ApiResponse } from '../../../shared/types/api'
+import type { ApiResponse } from '@project/shared'
 
 const API_URL = import.meta.env.VITE_API_URL
 

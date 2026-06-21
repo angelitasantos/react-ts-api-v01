@@ -3,8 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import routes from './routes'
-import { notFoundMiddleware } from './shared/middlewares/notFoundMiddleware'
-import { errorMiddleware } from './shared/middlewares/errorMiddleware'
+import { notFoundMiddleware, errorMiddleware } from '@project/backend-core'
 
 const app = express()
 

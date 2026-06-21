@@ -2,8 +2,8 @@ import { useHome } from '../../hooks/useHome'
 import { HomeBanner } from '../../components/HomeBanner/HomeBanner'
 import { HomeHighlights } from '../../components/HomeHighlights/HomeHighlights'
 import { HomeAbout } from '../../components/HomeAbout/HomeAbout'
-import { useDocumentTitle } from '../../../../shared/hooks/useDocumentTitle'
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '../../../../shared/constants/messages'
+import { useDocumentTitle } from '@project/ui'
+import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '@project/shared'
 import './home.css'
 
 export default function Home() {

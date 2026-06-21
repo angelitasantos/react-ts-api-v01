@@ -1,9 +1,8 @@
-import { PublicLayout } from '../shared/layouts/PublicLayout/PublicLayout'
-import { PublicRoute } from '../shared/components/PublicRoute/PublicRoute'
+import { PublicLayout, PublicRoute } from '@project/frontend-core'
 import { LoginPage } from '../modules/web-auth/pages/LoginPage/LoginPage'
-import Home from '../modules/web-home/public-pages/Home'
-import About from '../modules/web-home/public-pages/About'
-import Contact from '../modules/web-home/public-pages/Contact'
+import Home from '../../../frontend-web/src/modules/web-home/public-pages/Home'
+import About from '../../../frontend-web/src/modules/web-home/public-pages/About'
+import Contact from '../../../frontend-web/src/modules/web-home/public-pages/Contact'
 
 export const publicRoutes = {
   path: '/',
@@ -16,7 +15,7 @@ export const publicRoutes = {
     {
       path: 'login',
       element: (
-        <PublicRoute>
+        <PublicRoute isAuthenticated={false}>
           <LoginPage />
         </PublicRoute>
       ),

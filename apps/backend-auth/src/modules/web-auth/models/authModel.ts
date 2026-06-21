@@ -1,4 +1,4 @@
-import { db } from '../../../database/connection'
+import { db } from '../../../database'
 import { UserEntity } from '../types/authTypes'
 
 export class AuthModel {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { StatusResponse } from '../../../shared/types/api'
-import { apiFetch } from '../../../shared/services/api'
-import { useDocumentTitle } from '../../../shared/hooks/useDocumentTitle'
-import { LoadingSpinner } from '../../../shared/components/LoadingSpinner'
+import { StatusResponse } from '@project/shared'
+import { apiFetch } from '../../../services/api'
+import { useDocumentTitle } from '@project/ui'
+import { LoadingSpinner } from '@project/ui'
 import './ConnectionTest.css'
 
 import {
@@ -10,7 +10,7 @@ import {
   CONNECTION_ERROR_MESSAGE,
   CONNECTION_PAGE_TITLE,
   LOADING_DELAY,
-} from '../../../shared/constants'
+} from '@project/shared'
 
 export function ConnectionTest() {
   useDocumentTitle(CONNECTION_PAGE_TITLE)
