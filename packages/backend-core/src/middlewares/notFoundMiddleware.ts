@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { errorResponse } from '@project/backend-core'
+import { errorResponse } from '../errors/responseFormatter'
 import { ROUTE_NOT_FOUND } from '@project/shared'
 
 export function notFoundMiddleware(req: Request, res: Response) {

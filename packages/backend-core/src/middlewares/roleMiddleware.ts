@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import { AppError, JwtPayload } from '@project/backend-core'
+import { AppError } from '../errors/AppError'
+import { JwtPayload } from '../utils/jwt'
 import { 
   ACCESS_DENIED, 
   UNAUTHENTICATED_USER 

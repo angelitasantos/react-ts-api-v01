@@ -2,6 +2,7 @@ export const BACKEND_WORKING = 'Backend funcionando 🚀'
 export const SERVER_RUNNING = 'Servidor rodando'
 
 export const DB_CONNECTED_SUCCESS = 'Banco de Dados conectado com sucesso.'
+export const TESTING_DATABASE_CONNECTION = 'Testando a conexão com o banco de dados ...'
 
 export const DEFAULT_MESSAGE_SUCCESS = 'Operação realizada com sucesso.'
 export const LOGIN_SUCCESS = 'Login realizado com sucesso.'

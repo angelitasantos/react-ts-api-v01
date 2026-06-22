@@ -15,8 +15,8 @@ export function LogoutButton({ onLogout }: LogoutButtonProps) {
 
   return (
     <button
-      type="button"
-      className="logout-button"
+      type='button'
+      className='logout-button'
       onClick={handleLogout}
     >
       Sair

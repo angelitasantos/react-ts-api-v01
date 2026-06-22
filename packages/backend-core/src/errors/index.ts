@@ -1,3 +1,3 @@
 // Errors são exportados aqui.
-export * from './AppError'
-export * from './responseFormatter'
+export * from './AppError.js'
+export * from './responseFormatter.js'

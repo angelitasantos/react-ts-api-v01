@@ -1,7 +1,7 @@
 import app from './app'
 import { env } from './config/env'
 import { databases } from '@project/database'
-import { DB_CONNECTED_SUCCESS, DB_CONNECTING_ERROR, SERVER_RUNNING } from '@project/shared'
+import { DB_CONNECTED_SUCCESS, DB_CONNECTING_ERROR, SERVER_RUNNING, TESTING_DATABASE_CONNECTION } from '@project/shared'
 
 const db = databases.auth
 
@@ -9,7 +9,7 @@ const PORT = env.app.PORT
 
 async function startServer() {
   try {
-    console.log('🔌 Testing database connection...')
+    console.log(`🔌 ${TESTING_DATABASE_CONNECTION}`)
 
     await db.testConnection()
 

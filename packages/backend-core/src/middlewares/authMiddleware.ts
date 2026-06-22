@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import { AppError, verifyToken } from '@project/backend-core'
+import { AppError } from '../errors/AppError'
+import { verifyToken } from '../utils/jwt'
 import { 
   EXPIRED_OR_INVALID_TOKEN, 
   INVALID_TOKEN, 

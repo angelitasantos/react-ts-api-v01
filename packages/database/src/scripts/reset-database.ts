@@ -5,7 +5,7 @@ import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR, } from '@project/share
 
 const db = databases.auth
 
-async function resetDatabase() {
+export async function resetDatabase() {
   try {
     console.log(`${RUNNING}Reset Database...`)
 
@@ -30,5 +30,3 @@ async function resetDatabase() {
     process.exit(1)
   }
 }
-
-resetDatabase()

@@ -5,15 +5,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build && node dist/server.js",
+    "dev": "npm run build && node --loader ts-node/esm --experimental-specifier-resolution=node dist/server.js",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "migrate": "ts-node --project tsconfig.json src/database/run-migrations.ts",
-    "seed": "ts-node --project tsconfig.json src/database/seed-database.ts",
-    "reset-db": "ts-node --project tsconfig.json src/database/reset-database.ts",
+    "migrate": "npm run build && node --loader ts-node/esm --experimental-specifier-resolution=node dist/database/migrate.js",
+    "seed": "npm run build && node --loader ts-node/esm --experimental-specifier-resolution=node dist/database/seed.js",
+    "reset-db": "npm run build && node --loader ts-node/esm --experimental-specifier-resolution=node dist/database/reset.js",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint src --ext .ts"
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",

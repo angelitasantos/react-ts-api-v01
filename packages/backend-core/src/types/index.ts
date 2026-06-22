@@ -1,2 +1,2 @@
 // Types são exportados aqui.
-export * from './express.d'
+export * from './express'

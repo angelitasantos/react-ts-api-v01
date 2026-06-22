@@ -46,7 +46,7 @@ export const env = {
     PORT: getNumber(process.env.PORT, 3001),
   },
   database: {
-    DB_PATH: process.env.DB_PATH ?? './database/database.sqlite',
+    DB_PATH: process.env.DB_PATH ?? './data/database.sqlite',
   },
   auth: {
     JWT_SECRET: required('JWT_SECRET'),
