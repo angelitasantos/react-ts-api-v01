@@ -26,24 +26,25 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-          cache-dependency-path: |
-            backend/package-lock.json
-            frontend/package-lock.json
+          cache-dependency-path: package-lock.json
 
-      # Backend
-      - name: Install Backend Dependencies
-        working-directory: backend
+      - name: Install dependencies (root workspace)
         run: npm ci --no-audit --prefer-offline
 
-      - name: Build Backend
-        working-directory: backend
-        run: npm run build
+      - name: Build shared packages
+        run: npm run build:shared
 
-      # Frontend
-      - name: Install Frontend Dependencies
-        working-directory: frontend
-        run: npm ci --no-audit --prefer-offline
+      - name: Build UI
+        run: npm run build:ui
 
-      - name: Build Frontend
-        working-directory: frontend
-        run: npm run build
+      - name: Build frontend-core
+        run: npm run build:frontend-core
+
+      - name: Build backend-core
+        run: npm run build:backend-core
+
+      - name: Build database
+        run: npm run build:database
+
+      - name: Build apps
+        run: npm run build:apps
