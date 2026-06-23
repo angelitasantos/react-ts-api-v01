@@ -14,8 +14,6 @@
     "build:apps": "npm run build --workspace backend-auth && npm run build --workspace frontend-auth && npm run build --workspace frontend-web",
     "build": "npm run build:shared && npm run build:ui && npm run build:frontend-core && npm run build:backend-core && npm run build:database && npm run build:apps",
     "dev": "concurrently \"npm run dev --workspace backend-auth\" \"npm run dev --workspace frontend-auth\" \"npm run dev --workspace frontend-web\"",
-    "dev:backend": "npm run dev --workspace backend-auth",
-    "dev:frontend": "npm run dev --workspace frontend-auth",
     "lint": "eslint .",
     "test": "npm run test --workspaces"
   },
