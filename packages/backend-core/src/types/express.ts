@@ -1,10 +1,9 @@
+import 'express'
 import { JwtPayload } from '../utils/jwt.js'
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: JwtPayload
-    }
+declare module 'express' {
+  interface Request {
+    user?: JwtPayload
   }
 }
 

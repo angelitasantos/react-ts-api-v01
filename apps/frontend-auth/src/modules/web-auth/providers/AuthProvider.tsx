@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useMemo, useState } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
 import { loginRequest, AuthUser } from '../services/authService'
 import {
@@ -13,18 +13,13 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<AuthUser | null>(null)
-  const [token, setToken] = useState<string | null>(null)
+  const [token, setToken] = useState<string | null>(() => {
+    return getTokenStorage()
+  })
 
-  useEffect(() => {
-    const storedToken = getTokenStorage()
-    const storedUser = getUserStorage<AuthUser>()
-
-    if (storedToken && storedUser) {
-      setToken(storedToken)
-      setUser(storedUser)
-    }
-  }, [])
+  const [user, setUser] = useState<AuthUser | null>(() => {
+    return getUserStorage<AuthUser>()
+  })
 
   async function signIn(email: string, password: string) {
     const data = await loginRequest({ email, password })
