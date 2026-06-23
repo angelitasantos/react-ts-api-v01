@@ -26,7 +26,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
 
   {
-    files: ['**/*.{ts,tsx,js,mjs}'],
+    files: ['**/*.{ts,tsx,mjs}'],
 
     languageOptions: {
       ecmaVersion: 'latest',
@@ -74,6 +74,29 @@ export default tseslint.config(
       globals: {
         ...globals.node,
       },
+    },
+  },
+
+  // ==========================================
+  // BACKEND + PACKAGES (Jest)
+  // ==========================================
+  {
+    files: [
+      '**/*.cjs',
+      'apps/backend-auth/jest.config.js',
+      'scripts/start-dev.js',
+    ],
+
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
+      globals: {
+        ...globals.node,
+      },
+    },
+
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 
