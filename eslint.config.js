@@ -1,14 +1,13 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
 export default tseslint.config(
+  // ==========================================
+  // IGNORADOS GLOBAIS
+  // ==========================================
   {
     ignores: [
       '**/dist/**',
@@ -20,29 +19,31 @@ export default tseslint.config(
     ],
   },
 
+  // ==========================================
+  // REGRAS BASE JS + TS
+  // ==========================================
   js.configs.recommended,
   ...tseslint.configs.recommended,
 
-  // Configuração padrão para TypeScript
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,js,mjs}'],
 
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-
-      parserOptions: {
-        tsconfigRootDir: __dirname,
-      },
     },
   },
 
-  // Frontends React
+  // ==========================================
+  // FRONTEND (React)
+  // ==========================================
   {
     files: ['apps/frontend-*/**/*.{ts,tsx}'],
 
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+      },
     },
 
     plugins: {
@@ -55,22 +56,37 @@ export default tseslint.config(
 
       'react-refresh/only-export-components': [
         'warn',
-        {
-          allowConstantExport: true,
-        },
+        { allowConstantExport: true },
       ],
     },
   },
 
-  // Backend
+  // ==========================================
+  // BACKEND + PACKAGES (Node)
+  // ==========================================
   {
     files: [
-      'apps/backend-auth/**/*.ts',
-      'packages/**/*.ts',
+      'apps/backend-auth/**/*.{ts,js}',
+      'packages/**/*.{ts,js}',
     ],
 
     languageOptions: {
-      globals: globals.node,
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+
+  // ==========================================
+  // SCRIPTS NODE PUROS
+  // ==========================================
+  {
+    files: ['scripts/**/*.{js,mjs}'],
+
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
     },
   },
 )
