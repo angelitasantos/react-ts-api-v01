@@ -35,7 +35,7 @@ jobs:
 
       # Lint all workspaces
       - name: Lint project
-        run: npm run lint --workspaces
+        run: npm run lint
 
       # Build all workspaces (order controlled in root scripts)
       - name: Build project
