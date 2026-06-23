@@ -7,6 +7,7 @@ export function errorMiddleware(
   error: Error,
   req: Request,
   res: Response,
+  _next: NextFunction,
 ) {
   console.error(error)
 

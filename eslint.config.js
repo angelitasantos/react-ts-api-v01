@@ -13,7 +13,6 @@ export default tseslint.config(
       '**/dist/**',
       '**/coverage/**',
       '**/node_modules/**',
-      '**/*.d.ts',
       '**/.turbo/**',
       '**/.vite/**',
     ],
@@ -75,10 +74,30 @@ export default tseslint.config(
         ...globals.node,
       },
     },
+
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
   },
 
   // ==========================================
-  // BACKEND + PACKAGES (Jest)
+  // DECLARAÇÕES DE TIPOS
+  // ==========================================
+  {
+    files: ['**/*.d.ts'],
+
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+    },
+  },
+
+  // ==========================================
+  // COMMONJS (Jest / Scripts)
   // ==========================================
   {
     files: [
@@ -90,6 +109,7 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'commonjs',
+
       globals: {
         ...globals.node,
       },
@@ -101,7 +121,7 @@ export default tseslint.config(
   },
 
   // ==========================================
-  // SCRIPTS NODE PUROS
+  // SCRIPTS NODE
   // ==========================================
   {
     files: ['scripts/**/*.{js,mjs}'],
