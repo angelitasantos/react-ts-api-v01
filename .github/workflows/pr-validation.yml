@@ -27,32 +27,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-          cache-dependency-path: |
-            backend/package-lock.json
-            frontend/package-lock.json
+          cache-dependency-path: package-lock.json
 
-      # Backend
-      - name: Install Backend Dependencies
-        working-directory: backend
+      # Install once (monorepo root)
+      - name: Install dependencies
         run: npm ci --no-audit --prefer-offline
 
-      - name: Backend Lint
-        working-directory: backend
-        run: npm run lint --if-present
+      # Lint all workspaces
+      - name: Lint project
+        run: npm run lint
 
-      - name: Backend Build
-        working-directory: backend
-        run: npm run build
-
-      # Frontend
-      - name: Install Frontend Dependencies
-        working-directory: frontend
-        run: npm ci --no-audit --prefer-offline
-
-      - name: Frontend Lint
-        working-directory: frontend
-        run: npm run lint --if-present
-
-      - name: Frontend Build
-        working-directory: frontend
+      # Build all workspaces (order controlled in root scripts)
+      - name: Build project
         run: npm run build
