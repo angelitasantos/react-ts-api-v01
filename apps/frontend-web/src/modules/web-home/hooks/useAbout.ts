@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { aboutService } from '../services/aboutService'
 import type { AboutContent } from '../types/about'
-import { ABOUT_LOAD_ERROR } from '@project/shared'
+import { CONTENT_ERRORS } from '@project/shared'
 
 interface UseAboutReturn {
   about: AboutContent | null
@@ -23,7 +23,7 @@ export function useAbout(): UseAboutReturn {
         const data = await aboutService.getActiveAbout()
         setAbout(data)
       } catch {
-        setError(ABOUT_LOAD_ERROR)
+        setError(CONTENT_ERRORS.ABOUT_LOAD_ERROR)
       } finally {
         setLoading(false)
       }

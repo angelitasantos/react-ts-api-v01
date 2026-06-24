@@ -1,15 +1,15 @@
 import { resetDatabase } from '@project/database'
-import { RUNNING, RUNNING_ERROR } from '@project/shared'
+import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
 
 async function reset() {
   try {
-    console.log(`${RUNNING}Reset Database...`)
+    console.log(`${GENERAL_MESSAGES.RUNNING}Reset Database...`)
 
     await resetDatabase()
 
     process.exit(0)
   } catch (error) {
-    console.error(RUNNING_ERROR, error)
+    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
     process.exit(1)
   }
 }

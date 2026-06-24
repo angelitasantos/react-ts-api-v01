@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { homeService } from '../services/homeService'
 import type { HomeContent } from '../types/home'
-import { HOME_LOAD_ERROR } from '@project/shared'
+import { CONTENT_ERRORS } from '@project/shared'
 
 interface UseHomeReturn {
   home: HomeContent | null
@@ -23,7 +23,7 @@ export function useHome(): UseHomeReturn {
         const data = await homeService.getActiveHome()
         setHome(data)
       } catch {
-        setError(HOME_LOAD_ERROR)
+        setError(CONTENT_ERRORS.HOME_LOAD_ERROR)
       } finally {
         setLoading(false)
       }

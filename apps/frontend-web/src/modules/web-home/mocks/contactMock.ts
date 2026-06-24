@@ -1,5 +1,5 @@
 import type { ContactContent } from '../types/contact'
-import { CONTACT_FORM_SUCCESS } from '@project/shared'
+import { GENERAL_MESSAGES } from '@project/shared'
 
 export const contactMock: ContactContent = {
   id: 1,
@@ -17,5 +17,5 @@ export const contactMock: ContactContent = {
 }
 
 export const contactFormMock = {
-  message: CONTACT_FORM_SUCCESS,
+  message: GENERAL_MESSAGES.CONTACT_FORM_SUCCESS,
 }

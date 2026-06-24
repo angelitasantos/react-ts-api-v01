@@ -1,4 +1,4 @@
-import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR } from '@project/shared'
+import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
 
 import {
   rolesSeed,
@@ -13,7 +13,7 @@ import {
 } from '../seeds'
 
 export async function seedDatabase() {
-  console.log(`${RUNNING}Seed Database...`)
+  console.log(`${GENERAL_MESSAGES.RUNNING}Seed Database...`)
 
   await rolesSeed()
   await permissionsSeed()
@@ -27,14 +27,14 @@ export async function seedDatabase() {
   await contactSeed()
   await contactFormSeed()
 
-  console.log(`seed: ${DEFAULT_MESSAGE_SUCCESS}`)
+  console.log(`seed: ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
 }
 
 if (require.main === module) {
   seedDatabase()
     .then(() => process.exit(0))
     .catch((error) => {
-      console.error(RUNNING_ERROR, error)
+      console.error(SERVER_ERRORS.RUNNING_ERROR, error)
       process.exit(1)
     })
 }

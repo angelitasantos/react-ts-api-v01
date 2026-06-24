@@ -1,9 +1,9 @@
-import { DEFAULT_MESSAGE_SUCCESS } from '@project/shared'
+import { GENERAL_MESSAGES } from '@project/shared'
 
 export function successResponse<T>(data: T, message?: string) {
   return {
     success: true,
-    message: message || DEFAULT_MESSAGE_SUCCESS,
+    message: message || GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS,
     data,
   }
 }

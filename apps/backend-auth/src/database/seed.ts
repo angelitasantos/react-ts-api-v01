@@ -1,15 +1,15 @@
 import { seedDatabase } from '@project/database'
-import { RUNNING, RUNNING_ERROR } from '@project/shared'
+import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
 
 async function seed() {
   try {
-    console.log(`${RUNNING}Seed Database...`)
+    console.log(`${GENERAL_MESSAGES.RUNNING}Seed Database...`)
 
     await seedDatabase()
 
     process.exit(0)
   } catch (error) {
-    console.error(RUNNING_ERROR, error)
+    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
     process.exit(1)
   }
 }

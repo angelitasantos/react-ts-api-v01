@@ -1,13 +1,13 @@
 import { databases } from '../connection/database'
 import { runMigrations } from './run-migrations'
 import { seedDatabase } from './seed-database'
-import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR, } from '@project/shared'
+import { GENERAL_MESSAGES, SERVER_ERRORS, } from '@project/shared'
 
 const db = databases.auth
 
 export async function resetDatabase() {
   try {
-    console.log(`${RUNNING}Reset Database...`)
+    console.log(`${GENERAL_MESSAGES.RUNNING}Reset Database...`)
 
     await db.exec(`
       DROP TABLE IF EXISTS contact_form;
@@ -22,11 +22,11 @@ export async function resetDatabase() {
 
     await seedDatabase()
 
-    console.log(`reset-db: ${DEFAULT_MESSAGE_SUCCESS}`)
+    console.log(`reset-db: ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
 
     process.exit(0)
   } catch (error) {
-    console.error(RUNNING_ERROR, error)
+    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
     process.exit(1)
   }
 }

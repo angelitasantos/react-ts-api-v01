@@ -1,9 +1,6 @@
 import sqlite3 from 'sqlite3'
-import {
-  DB_CONNECTED_SUCCESS,
-  DB_CONNECTING_ERROR,
-} from '@project/shared'
 import { DatabaseConnection } from './types'
+import { DB_ERRORS, DB_MESSAGES } from '@project/shared'
 
 sqlite3.verbose()
 
@@ -12,9 +9,9 @@ export function createConnection(dbPath: string): DatabaseConnection {
 
   const database = new sqlite3.Database(dbPath, (error) => {
     if (error) {
-      console.error(DB_CONNECTING_ERROR, error.message)
+      console.error(DB_ERRORS.CONNECTING_ERROR, error.message)
     } else {
-      console.log(DB_CONNECTED_SUCCESS)
+      console.log(DB_MESSAGES.DB_CONNECTED_SUCCESS)
     }
   })
 

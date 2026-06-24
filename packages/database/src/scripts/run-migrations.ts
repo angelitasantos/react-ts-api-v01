@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { databases } from '../connection/database'
-import { DEFAULT_MESSAGE_SUCCESS, RUNNING, RUNNING_ERROR } from '@project/shared'
+import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
 
 const db = databases.auth
 
@@ -22,16 +22,16 @@ export async function runMigrations() {
       'utf-8'
     )
 
-    console.log(`${RUNNING}${file}`)
+    console.log(`${GENERAL_MESSAGES.RUNNING}${file}`)
     await db.exec(sql)
   }
 
-  console.log(`migrate: ${DEFAULT_MESSAGE_SUCCESS}`)
+  console.log(`migrate: ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
 }
 
 if (require.main === module) {
   runMigrations().catch(error => {
-    console.error(RUNNING_ERROR, error)
+    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
     process.exit(1)
   })
 }
