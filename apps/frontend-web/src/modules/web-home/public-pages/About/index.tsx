@@ -2,7 +2,7 @@ import { useAbout } from '../../hooks/useAbout'
 import { AboutHero } from '../../components/AboutHero'
 import { AboutValues } from '../../components/AboutValues'
 import { useDocumentTitle } from '@project/ui'
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '@project/shared'
+import { GENERAL_MESSAGES } from '@project/shared'
 import './about.css'
 
 export default function About() {
@@ -14,7 +14,7 @@ export default function About() {
       <main className='about-page__main'>
         {loading && (
           <section className='about-page__status-wrapper'>
-            <div className='about-page__status'>{LOADING_CONTENT}</div>
+            <div className='about-page__status'>{GENERAL_MESSAGES.LOADING_CONTENT}</div>
           </section>
         )}
 
@@ -40,7 +40,7 @@ export default function About() {
 
         {!loading && !error && !about && (
           <section className='about-page__status-wrapper'>
-            <div className='about-page__status'>{NO_CONTENT_AVAILABLE}</div>
+            <div className='about-page__status'>{GENERAL_MESSAGES.NO_CONTENT_AVAILABLE}</div>
           </section>
         )}
       </main>

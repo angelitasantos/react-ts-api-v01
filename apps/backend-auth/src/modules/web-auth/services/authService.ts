@@ -2,10 +2,7 @@ import { AppError, comparePassword, generateToken } from '@project/backend-core'
 import { jwtConfig } from '../../../config/jwt'
 import { AuthModel } from '../models/authModel'
 import { LoginDTO } from '../types/authTypes'
-import { 
-  INACTIVE_USER, 
-  INVALID_EMAIL_OR_PASSWORD 
-} from '@project/shared'
+import { AUTH_ERRORS } from '@project/shared'
 
 export class AuthService {
   constructor(private readonly authModel: AuthModel) {}
@@ -14,17 +11,17 @@ export class AuthService {
     const user = await this.authModel.findByEmail(payload.email)
 
     if (!user) {
-      throw new AppError(INVALID_EMAIL_OR_PASSWORD, 401)
+      throw new AppError(AUTH_ERRORS.INVALID_EMAIL_OR_PASSWORD, 401)
     }
 
     if (!user.is_active) {
-      throw new AppError(INACTIVE_USER, 403)
+      throw new AppError(AUTH_ERRORS.INACTIVE_USER, 403)
     }
 
     const passwordIsValid = await comparePassword(payload.password, user.password)
 
     if (!passwordIsValid) {
-      throw new AppError(INVALID_EMAIL_OR_PASSWORD, 401)
+      throw new AppError(AUTH_ERRORS.INVALID_EMAIL_OR_PASSWORD, 401)
     }
 
     const token = generateToken(

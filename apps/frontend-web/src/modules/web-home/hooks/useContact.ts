@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { contactService } from '../services/contactService'
 import type { ContactContent, ContactFormData } from '../types/contact'
-import { 
-  CONTACT_FORM_ERROR, 
-  CONTACT_FORM_SUCCESS, 
-  CONTACT_LOAD_ERROR } from '@project/shared'
+import { CONTENT_ERRORS, GENERAL_MESSAGES } from '@project/shared'
 
 interface UseContactReturn {
   contact: ContactContent | null
@@ -31,7 +28,7 @@ export function useContact(): UseContactReturn {
         const data = await contactService.getActiveContact()
         setContact(data)
       } catch {
-        setError(CONTACT_LOAD_ERROR)
+        setError(CONTENT_ERRORS.CONTACT_LOAD_ERROR)
       } finally {
         setLoading(false)
       }
@@ -46,9 +43,9 @@ export function useContact(): UseContactReturn {
       setSuccessMessage(null)
       
       await contactService.sendContactForm(data)
-      setSuccessMessage(CONTACT_FORM_SUCCESS)
+      setSuccessMessage(GENERAL_MESSAGES.CONTACT_FORM_SUCCESS)
     } catch {
-      setError(CONTACT_FORM_ERROR)
+      setError(CONTENT_ERRORS.CONTACT_FORM_ERROR)
     } finally {
       setSubmitting(false)
     }

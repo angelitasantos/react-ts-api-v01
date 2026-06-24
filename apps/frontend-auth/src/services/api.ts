@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { clearAuthStorage, getTokenStorage } from '@project/frontend-core'
-import { REQUEST_ERROR_MESSAGE } from '@project/shared'
+import { REQUEST_ERRORS } from '@project/shared'
 
 export const API_URL = import.meta.env.VITE_API_URL
 
@@ -14,7 +14,7 @@ export async function apiFetch<Response>(
   )
 
   if (!response.ok) {
-    throw new Error(REQUEST_ERROR_MESSAGE)
+    throw new Error(REQUEST_ERRORS.REQUEST_ERROR)
   }
 
   return response.json()

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import { AppError } from '../errors/AppError'
 import { errorResponse } from '../errors/responseFormatter'
-import { INTERNAL_SERVER_ERROR } from '@project/shared'
+import { SERVER_ERRORS } from '@project/shared'
 
 export function errorMiddleware(
   error: Error,
@@ -15,5 +15,5 @@ export function errorMiddleware(
     return res.status(error.statusCode).json(errorResponse(error.message))
   }
 
-  return res.status(500).json(errorResponse(INTERNAL_SERVER_ERROR))
+  return res.status(500).json(errorResponse(SERVER_ERRORS.INTERNAL_SERVER_ERROR))
 }

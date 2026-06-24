@@ -3,7 +3,7 @@ import { HomeBanner } from '../../components/HomeBanner/HomeBanner'
 import { HomeHighlights } from '../../components/HomeHighlights/HomeHighlights'
 import { HomeAbout } from '../../components/HomeAbout/HomeAbout'
 import { useDocumentTitle } from '@project/ui'
-import { LOADING_CONTENT, NO_CONTENT_AVAILABLE } from '@project/shared'
+import { GENERAL_MESSAGES } from '@project/shared'
 import './home.css'
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <main className='home-page__main'>
         {loading && (
           <section className='home-page__status-wrapper'>
-            <div className='home-page__status'>{LOADING_CONTENT}</div>
+            <div className='home-page__status'>{GENERAL_MESSAGES.LOADING_CONTENT}</div>
           </section>
         )}
 
@@ -46,7 +46,7 @@ export default function Home() {
 
         {!loading && !error && !home && (
           <section className='home-page__status-wrapper'>
-            <div className='home-page__status'>{NO_CONTENT_AVAILABLE}</div>
+            <div className='home-page__status'>{GENERAL_MESSAGES.NO_CONTENT_AVAILABLE}</div>
           </section>
         )}
       </main>

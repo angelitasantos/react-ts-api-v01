@@ -1,7 +1,9 @@
+import { PUBLIC_ROUTES } from '@project/shared'
 import type { NavigationItem } from '@project/ui'
 
-export const publicLinks: NavigationItem[] = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-]
+export const publicLinks: NavigationItem[] = Object.values(PUBLIC_ROUTES).map(
+  (route) => ({
+    to: route.PATH,
+    label: route.LABEL,
+  }),
+)

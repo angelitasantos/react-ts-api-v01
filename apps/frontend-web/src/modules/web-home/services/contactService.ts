@@ -1,11 +1,7 @@
 import { contactMock, contactFormMock } from '../mocks/contactMock'
 import type { ContactContent, ContactFormData, } from '../types/contact'
 import type { ApiResponse } from '@project/shared'
-import {
-  CONTACT_FORM_ERROR,
-  CONTACT_FORM_SUCCESS,
-  CONTACT_LOAD_ERROR,
-} from '@project/shared'
+import { CONTENT_ERRORS, GENERAL_MESSAGES } from '@project/shared'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -19,7 +15,7 @@ export const contactService = {
       console.log('Status getActiveContact:', response.status)
 
       if (!response.ok) {
-        throw new Error(CONTACT_LOAD_ERROR)
+        throw new Error(CONTENT_ERRORS.CONTACT_LOAD_ERROR)
       }
 
       const result: ApiResponse<ContactContent> =
@@ -52,10 +48,10 @@ export const contactService = {
       console.log('Resposta sendContactForm:', result)
 
       if (!response.ok) {
-        throw new Error(result.message || CONTACT_FORM_ERROR)
+        throw new Error(result.message || CONTENT_ERRORS.CONTACT_FORM_ERROR)
       }
 
-      return {message: result.message || CONTACT_FORM_SUCCESS,}
+      return {message: result.message || GENERAL_MESSAGES.CONTACT_FORM_SUCCESS,}
     } catch (error) {
       console.warn('API de formulário indisponível. Utilizando mock.', error)
 

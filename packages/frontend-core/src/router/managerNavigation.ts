@@ -1,3 +1,4 @@
+import { MANAGER_ROUTES } from '@project/shared'
 import type { NavigationItem } from '@project/ui'
 import {
   FiHome,
@@ -7,12 +8,21 @@ import {
 } from 'react-icons/fi'
 
 export const managerTopLinks: NavigationItem[] = [
-  { to: '/manager', label: 'Dashboard' },
+  {
+    to: MANAGER_ROUTES.DASHBOARD.PATH,
+    label: MANAGER_ROUTES.DASHBOARD.LABEL,
+  },
 ]
 
-export const managerSidebarLinks: NavigationItem[] = [
-  { to: '/manager', label: 'Dashboard', icon: FiHome },
-  { to: '/manager/users', label: 'Users', icon: FiUsers },
-  { to: '/manager/reports', label: 'Reports', icon: FiBarChart2 },
-  { to: '/manager/connection-test', label: 'Connection Test', icon: FiDatabase },
+const sidebarConfig = [
+  { route: MANAGER_ROUTES.DASHBOARD, icon: FiHome },
+  { route: MANAGER_ROUTES.USERS, icon: FiUsers },
+  { route: MANAGER_ROUTES.REPORTS, icon: FiBarChart2 },
+  { route: MANAGER_ROUTES.CONNECTION_TEST, icon: FiDatabase },
 ]
+
+export const managerSidebarLinks = sidebarConfig.map(({ route, icon }) => ({
+  to: route.PATH,
+  label: route.LABEL,
+  icon,
+}))

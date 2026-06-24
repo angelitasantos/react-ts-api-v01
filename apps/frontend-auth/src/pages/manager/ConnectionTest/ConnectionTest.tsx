@@ -6,16 +6,16 @@ import { LoadingSpinner } from '@project/ui'
 import './ConnectionTest.css'
 
 import {
-  CONNECTING_MESSAGE,
-  CONNECTION_ERROR_MESSAGE,
-  CONNECTION_PAGE_TITLE,
-  LOADING_DELAY,
+  APP_CONFIG,
+  GENERAL_MESSAGES,
+  MANAGER_ROUTES,
+  REQUEST_ERRORS,
 } from '@project/shared'
 
 export function ConnectionTest() {
-  useDocumentTitle(CONNECTION_PAGE_TITLE)
+  useDocumentTitle(MANAGER_ROUTES.CONNECTION_TEST.TITLE)
 
-  const [message, setMessage] = useState<string>(CONNECTING_MESSAGE)
+  const [message, setMessage] = useState<string>(GENERAL_MESSAGES.CONNECTING_MESSAGE)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [hasError, setHasError] = useState<boolean>(false)
 
@@ -27,7 +27,7 @@ export function ConnectionTest() {
             '/api/testa_conexao_frontend'
           ),
           new Promise((resolve) =>
-            setTimeout(resolve, LOADING_DELAY)
+            setTimeout(resolve, APP_CONFIG.LOADING_DELAY)
           ),
         ])
 
@@ -35,7 +35,7 @@ export function ConnectionTest() {
         setHasError(false)
       } catch (error) {
         console.error(error)
-        setMessage(CONNECTION_ERROR_MESSAGE)
+        setMessage(REQUEST_ERRORS.CONNECTION_ERROR)
         setHasError(true)
       } finally {
         setIsLoading(false)
@@ -55,14 +55,14 @@ export function ConnectionTest() {
     <div className='connection-test-page'>
       <main className='connection-test-page__main'>
         <h1 className='connection-test-page__title'>
-          {CONNECTION_PAGE_TITLE}
+          {MANAGER_ROUTES.CONNECTION_TEST.TITLE}
         </h1>
 
         <section className='connection-test-page__status-wrapper'>
           {
             isLoading ? (
               <LoadingSpinner
-                message={CONNECTING_MESSAGE}
+                message={GENERAL_MESSAGES.CONNECTING_MESSAGE}
               />
             ) : (
               <div className={statusClassName}>
