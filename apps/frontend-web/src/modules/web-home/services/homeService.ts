@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL
 export const homeService = {
   async getActiveHome(): Promise<HomeContent> {
     try {
-      const response = await fetch(`${API_URL}/api/home/active`)
+      const response = await fetch(`${API_URL}/home/active`)
 
       if (!response.ok) {
         throw new Error()

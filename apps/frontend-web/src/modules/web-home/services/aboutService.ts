@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL
 export const aboutService = {
   async getActiveAbout(): Promise<AboutContent> {
     try {
-      const response = await fetch(`${API_URL}/api/about/active`)
+      const response = await fetch(`${API_URL}/about/active`)
 
       if (!response.ok) {
         throw new Error()

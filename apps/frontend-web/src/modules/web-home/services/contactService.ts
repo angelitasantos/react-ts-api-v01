@@ -8,11 +8,9 @@ const API_URL = import.meta.env.VITE_API_URL
 export const contactService = {
   async getActiveContact(): Promise<ContactContent> {
     try {
-      const url = `${API_URL}/api/contact/active`
-      console.log('Buscando contato em:', url)
+      const url = `${API_URL}/contact/active`
 
       const response = await fetch(url)
-      console.log('Status getActiveContact:', response.status)
 
       if (!response.ok) {
         throw new Error(CONTENT_ERRORS.CONTACT_LOAD_ERROR)
@@ -20,7 +18,6 @@ export const contactService = {
 
       const result: ApiResponse<ContactContent> =
         await response.json()
-      console.log('Conteúdo de contato:', result)
 
       return result.data
     } catch (error) {
@@ -33,8 +30,7 @@ export const contactService = {
     data: ContactFormData
   ): Promise<{ message: string }> {
     try {
-      const url = `${API_URL}/api/contact-form`
-      console.log('Enviando formulário para:', url, data)
+      const url = `${API_URL}/contact-form`
 
       const response = await fetch(url, {
         method: 'POST',
@@ -45,7 +41,6 @@ export const contactService = {
       })
 
       const result = await response.json()
-      console.log('Resposta sendContactForm:', result)
 
       if (!response.ok) {
         throw new Error(result.message || CONTENT_ERRORS.CONTACT_FORM_ERROR)
