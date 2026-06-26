@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { SYSTEM_MESSAGES } from '@project/shared'
 import webAuthRoutes from '../modules/web-auth'
+import webHomeRoutes from '../modules/web-home'
 
 const router = Router()
 
@@ -15,6 +16,7 @@ router.get('/api/testa_conexao_frontend', (req, res) => {
   })
 })
 
-router.use(webAuthRoutes)
+router.use('/api', webAuthRoutes)
+router.use('/api', webHomeRoutes)
 
 export default router
