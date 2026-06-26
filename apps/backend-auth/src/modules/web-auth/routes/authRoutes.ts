@@ -10,10 +10,10 @@ const authModel = new AuthModel()
 const authService = new AuthService(authModel)
 const authController = new AuthController(authService)
 
-router.post('/auth/login', authRateLimit, authController.login)
+router.post('/login', authRateLimit, authController.login)
 
 router.get(
-  '/auth/me',
+  '/me',
   authRateLimit,
   authMiddleware,
   roleMiddleware(['admin']),

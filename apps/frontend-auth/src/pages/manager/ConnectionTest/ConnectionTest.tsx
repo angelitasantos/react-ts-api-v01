@@ -24,7 +24,7 @@ export function ConnectionTest() {
       try {
         const [data] = await Promise.all([
           apiFetch<StatusResponse>(
-            '/api/testa_conexao_frontend'
+            '/testa_conexao_frontend'
           ),
           new Promise((resolve) =>
             setTimeout(resolve, APP_CONFIG.LOADING_DELAY)
