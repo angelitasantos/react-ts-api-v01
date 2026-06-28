@@ -1,15 +1,23 @@
-import { runMigrations } from '@project/database'
-import { DB_ERRORS, DB_MESSAGES, GENERAL_MESSAGES } from '@project/shared'
+import { env } from '../config/env'
+import { AppLogger, AppModule } from '@project/backend-core'
+import { DB_ERRORS, GENERAL_MESSAGES } from '@project/shared'
+import { 
+  createDbConnection,
+  databasePaths,
+  runMigrations,
+} from '@project/database'
+
+const db = createDbConnection(env.database.DB_PATH)
 
 async function migrate() {
   try {
-    console.log(`🔄 ${GENERAL_MESSAGES.RUNNING}migrações...`)
+    AppLogger.info(`${GENERAL_MESSAGES.RUNNING}migrações...`, AppModule.DATABASE)
 
-    await runMigrations()
-
-    console.log(`✅ ${DB_MESSAGES.DB_CONNECTED_SUCCESS}`)
+    await runMigrations(db, databasePaths.authMigrations)
+    
+    process.exit(0)
   } catch (error) {
-    console.error(`❌ ${DB_ERRORS.CONNECTING_ERROR}`, error)
+    AppLogger.error(DB_ERRORS.CONNECTING_ERROR, AppModule.DATABASE, error)
     process.exit(1)
   }
 }

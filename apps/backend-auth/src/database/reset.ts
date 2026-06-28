@@ -1,15 +1,30 @@
-import { resetDatabase } from '@project/database'
-import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
+import { env } from '../config/env'
+import { AppLogger, AppModule } from '@project/backend-core'
+import { DB_ERRORS, GENERAL_MESSAGES } from '@project/shared'
+import { 
+  authDropTables,
+  authSeeds,
+  createDbConnection,
+  databasePaths,
+  resetDatabase,
+} from '@project/database'
+
+const db = createDbConnection(env.database.DB_PATH)
 
 async function reset() {
   try {
-    console.log(`${GENERAL_MESSAGES.RUNNING}Reset Database...`)
+    AppLogger.info(`${GENERAL_MESSAGES.RUNNING}Reset Database...`, AppModule.DATABASE)
 
-    await resetDatabase()
+    await resetDatabase(
+      db,
+      authDropTables,
+      databasePaths.authMigrations,
+      authSeeds,
+    )
 
     process.exit(0)
   } catch (error) {
-    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
+    AppLogger.error(DB_ERRORS.CONNECTING_ERROR, AppModule.DATABASE, error)
     process.exit(1)
   }
 }

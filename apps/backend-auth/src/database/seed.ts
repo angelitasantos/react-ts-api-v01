@@ -1,15 +1,23 @@
-import { seedDatabase } from '@project/database'
-import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
+import { env } from '../config/env'
+import { AppLogger, AppModule } from '@project/backend-core'
+import { DB_ERRORS, GENERAL_MESSAGES } from '@project/shared'
+import { 
+  createDbConnection, 
+  seedDatabase, 
+  authSeeds 
+} from '@project/database'
+
+const db = createDbConnection(env.database.DB_PATH)
 
 async function seed() {
   try {
-    console.log(`${GENERAL_MESSAGES.RUNNING}Seed Database...`)
+    AppLogger.info(`${GENERAL_MESSAGES.RUNNING}Seed Database...`, AppModule.DATABASE)
 
-    await seedDatabase()
-
+    await seedDatabase(db, authSeeds)
+    
     process.exit(0)
   } catch (error) {
-    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
+    AppLogger.error(DB_ERRORS.CONNECTING_ERROR, AppModule.DATABASE, error)
     process.exit(1)
   }
 }
