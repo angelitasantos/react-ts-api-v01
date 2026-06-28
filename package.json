@@ -11,9 +11,9 @@
     "build:frontend-core": "npm run build --workspace @project/frontend-core",
     "build:backend-core": "npm run build --workspace @project/backend-core",
     "build:database": "npm run build --workspace @project/database",
-    "build:apps": "npm run build --workspace backend-auth && npm run build --workspace frontend-auth && npm run build --workspace frontend-web",
+    "build:apps": "npm run build --workspace backend-auth && npm run build --workspace backend-web && npm run build --workspace frontend-auth && npm run build --workspace frontend-web",
     "build": "npm run build:shared && npm run build:ui && npm run build:frontend-core && npm run build:backend-core && npm run build:database && npm run build:apps",
-    "dev": "concurrently \"npm run dev --workspace backend-auth\" \"npm run dev --workspace frontend-auth\" \"npm run dev --workspace frontend-web\"",
+    "dev": "concurrently \"npm run dev --workspace backend-auth\" \"npm run dev --workspace backend-web\" \"npm run dev --workspace frontend-auth\" \"npm run dev --workspace frontend-web\"",
     "lint": "eslint .",
     "test": "npm run test --workspaces"
   },
@@ -24,8 +24,10 @@
     "eslint": "^10.5.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
+    "express-list-endpoints": "^7.1.1",
     "globals": "^17.7.0",
     "open": "^11.0.0",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.0"
   },
