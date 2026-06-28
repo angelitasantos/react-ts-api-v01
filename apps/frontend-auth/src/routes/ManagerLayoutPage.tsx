@@ -2,9 +2,8 @@ import {
   ManagerLayout,
   LogoutButton,
 } from '@project/frontend-core'
-
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../modules/web-auth/hooks/useAuth'
+import { useAuth } from '@project/frontend-core'
 import {
   managerTopLinks,
   managerSidebarLinks,

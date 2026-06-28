@@ -1,49 +1,66 @@
 import { ReactNode, useMemo, useState } from 'react'
-import { AuthContext } from '../contexts/AuthContext'
-import { loginRequest, AuthUser } from '../services/authService'
+
 import {
+  AuthContext,
+  loginRequest,
+  setAuthStorage,
   clearAuthStorage,
   getTokenStorage,
   getUserStorage,
-  setAuthStorage,
+  type AuthUser,
 } from '@project/frontend-core'
 
-interface AuthProviderProps {
+import { api } from '../../../services/api'
+
+interface Props {
   children: ReactNode
 }
 
-export function AuthProvider({ children }: AuthProviderProps) {
-  const [token, setToken] = useState<string | null>(() => {
-    return getTokenStorage()
-  })
+export function AuthProvider({
+  children,
+}: Props) {
+  const [token, setToken] = useState(
+    () => getTokenStorage(),
+  )
 
-  const [user, setUser] = useState<AuthUser | null>(() => {
-    return getUserStorage<AuthUser>()
-  })
+  const [user, setUser] = useState<AuthUser | null>(
+    () => getUserStorage<AuthUser>(),
+  )
 
-  async function signIn(email: string, password: string) {
-    const data = await loginRequest({ email, password })
+  async function signIn(
+    email: string,
+    password: string,
+  ) {
+    const data = await loginRequest(api, {
+      email,
+      password,
+    })
 
     setToken(data.token)
     setUser(data.user)
-    setAuthStorage(data.token, data.user)
+
+    setAuthStorage(
+      data.token,
+      data.user,
+    )
   }
 
   function signOut() {
+    clearAuthStorage()
+
     setToken(null)
     setUser(null)
-    clearAuthStorage()
   }
 
   const value = useMemo(
     () => ({
-      user,
       token,
+      user,
       isAuthenticated: !!token,
       signIn,
       signOut,
     }),
-    [user, token],
+    [token, user],
   )
 
   return (

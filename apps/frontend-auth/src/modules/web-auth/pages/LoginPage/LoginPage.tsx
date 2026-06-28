@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { FormEvent, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '@project/frontend-core'
 import { useDocumentTitle } from '@project/ui'
 import './LoginPage.css'
 

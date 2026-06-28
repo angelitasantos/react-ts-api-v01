@@ -1,6 +1,11 @@
-import { NotFound } from '../pages/public/NotFound/NotFound'
+import { NotFoundPage } from '@project/frontend-core'
 
 export const notFoundRoute = {
   path: '*',
-  element: <NotFound />,
+  element: (
+    <NotFoundPage
+      redirectTo='/manager'
+      redirectLabel='Voltar ao Painel'
+    />
+  ),
 }
