@@ -1,7 +1,11 @@
 export * from './connection/createConnection'
 export * from './connection/createDbConnection'
-export { databases } from './connection/database'
-export type { DatabaseName } from './connection/database'
-export { runMigrations } from './scripts/run-migrations'
-export { seedDatabase } from './scripts/seed-database'
-export { resetDatabase } from './scripts/reset-database'
+export * from './constants/dropTables'
+export * from './utils/paths'
+
+export * from './scripts/run-migrations'
+export * from './scripts/seed-database'
+export * from './scripts/reset-database'
+
+export * from './seeds/auth'
+export * from './seeds/web'

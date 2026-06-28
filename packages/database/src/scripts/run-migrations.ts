@@ -1,16 +1,12 @@
 import fs from 'fs'
 import path from 'path'
-import { databases } from '../connection/database'
-import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
+import { DatabaseConnection } from '../connection/types'
+import { GENERAL_MESSAGES } from '@project/shared'
 
-const db = databases.auth
-
-export async function runMigrations() {
-  const migrationsPath = path.resolve(
-    __dirname,
-    '../../migrations'
-  )
-
+export async function runMigrations(
+  db: DatabaseConnection,
+  migrationsPath: string,
+) {
   const files = fs
     .readdirSync(migrationsPath)
     .filter((file) => file.endsWith('.sql'))
@@ -22,16 +18,9 @@ export async function runMigrations() {
       'utf-8'
     )
 
-    console.log(`${GENERAL_MESSAGES.RUNNING}${file}`)
+    console.log(`ℹ️ ${GENERAL_MESSAGES.RUNNING}${file}`)
     await db.exec(sql)
   }
 
-  console.log(`migrate: ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
-}
-
-if (require.main === module) {
-  runMigrations().catch(error => {
-    console.error(SERVER_ERRORS.RUNNING_ERROR, error)
-    process.exit(1)
-  })
+  console.log(`migrate: ✅ ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
 }

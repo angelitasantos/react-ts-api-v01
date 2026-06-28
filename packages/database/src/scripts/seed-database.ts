@@ -1,40 +1,14 @@
-import { GENERAL_MESSAGES, SERVER_ERRORS } from '@project/shared'
+import { DatabaseConnection } from '../connection/types'
+import { GENERAL_MESSAGES } from '@project/shared'
 
-import {
-  rolesSeed,
-  permissionsSeed,
-  rolePermissionsSeed,
-  usersSeed,
-  userRolesSeed,
-  homeSeed,
-  aboutSeed,
-  contactSeed,
-  contactFormSeed,
-} from '../seeds'
+export async function seedDatabase(
+  db: DatabaseConnection,
+  seeds: Array<(db: DatabaseConnection) => Promise<void>>,
+) {
 
-export async function seedDatabase() {
-  console.log(`${GENERAL_MESSAGES.RUNNING}Seed Database...`)
+  for (const seed of seeds) {
+    await seed(db)
+  }
 
-  await rolesSeed()
-  await permissionsSeed()
-  await rolePermissionsSeed()
-
-  await usersSeed()
-  await userRolesSeed()
-
-  await homeSeed()
-  await aboutSeed()
-  await contactSeed()
-  await contactFormSeed()
-
-  console.log(`seed: ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
-}
-
-if (require.main === module) {
-  seedDatabase()
-    .then(() => process.exit(0))
-    .catch((error) => {
-      console.error(SERVER_ERRORS.RUNNING_ERROR, error)
-      process.exit(1)
-    })
+  console.log(`seed: ✅ ${GENERAL_MESSAGES.DEFAULT_MESSAGE_SUCCESS}`)
 }
