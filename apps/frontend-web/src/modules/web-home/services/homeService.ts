@@ -1,21 +1,15 @@
-import { homeMock } from '../mocks/homeMock'
-import type { HomeContent } from '../types/home'
 import type { ApiResponse } from '@project/shared'
-
-const API_URL = import.meta.env.VITE_API_URL
+import type { HomeContent } from '../types/home'
+import { homeMock } from '../mocks/homeMock'
+import { apiFetch } from '../../../services/api'
 
 export const homeService = {
   async getActiveHome(): Promise<HomeContent> {
     try {
-      const response = await fetch(`${API_URL}/home/active`)
-
-      if (!response.ok) {
-        throw new Error()
-      }
-
-      const result: ApiResponse<HomeContent> = await response.json()
-      return result.data
-    } catch {
+      const response = await apiFetch<ApiResponse<HomeContent>>('/home/active')
+      return response.data
+    } catch (error) {
+      console.log('API de home indisponível. Utilizando mock.', error)
       return homeMock
     }
   },

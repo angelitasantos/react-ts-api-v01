@@ -1,21 +1,15 @@
-import { aboutMock } from '../mocks/aboutMock'
-import type { AboutContent } from '../types/about'
 import type { ApiResponse } from '@project/shared'
-
-const API_URL = import.meta.env.VITE_API_URL
+import type { AboutContent } from '../types/about'
+import { aboutMock } from '../mocks/aboutMock'
+import { apiFetch } from '../../../services/api'
 
 export const aboutService = {
   async getActiveAbout(): Promise<AboutContent> {
     try {
-      const response = await fetch(`${API_URL}/about/active`)
-
-      if (!response.ok) {
-        throw new Error()
-      }
-
-      const result: ApiResponse<AboutContent> = await response.json()
-      return result.data
-    } catch {
+      const response = await apiFetch<ApiResponse<AboutContent>>('/about/active')
+      return response.data
+    } catch (error) {
+      console.log('API de about indisponível. Utilizando mock.', error)
       return aboutMock
     }
   },
